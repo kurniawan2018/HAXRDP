@@ -4,6 +4,7 @@ on: [push, workflow_dispatch]
 
 jobs:
 build:
+
 runs-on: windows-latest
 	
 steps:
@@ -20,11 +21,7 @@ run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\TerminalServ
 
 name "fDenyTSConnections" -Value 0
 -run: Enable-NetFirewallRule -DisplayGroup "Remote Sesktop"
--run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control
-
-\TerminalServer'\WinStations\DRP-Tcp' -name "UserAuthentication" -Value 1
--run: Set-LocalUser -Name "ponny" -Password (ConvertTo-SecureString - AsPlainText 
-
-"Ponny442318" -Force)
+-run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\TerminalServer'\WinStations\DRP-Tcp' -name "UserAuthentication" -Value 1
+-run: Set-LocalUser -Name "ponny" -Password (ConvertTo-SecureString - AsPlainText "Ponny442318" -Force)
 -name: DONE!
 run: .\ngrok\ngrok.exe tcp 3389
