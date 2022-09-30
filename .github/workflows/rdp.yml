@@ -1,10 +1,10 @@
-name: PX
+name: HAXRDP
 
 on: [push, workflow_dispatch]
 
 jobs:
 build:
-runs-on: windows-latest
+runs-on: windows
 	
 steps:
 - name: DOWNLOADING
